@@ -2,3 +2,4 @@ Pillow
 newspaper3k
 urllib3
 streamlit
+pandas
