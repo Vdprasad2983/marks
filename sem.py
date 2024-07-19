@@ -83,7 +83,7 @@ with open("marksdata.csv","r") as f:
     col1,col2,col3=sl.columns(3)
     roll=col1.text_input("enter your roll number in caps",max_chars=10)
     pre=col2.text_input("enter you total cgpa upto this result",value=0.0,max_chars=5)
-    present_sem=col3.selectbox("enter you present number of sem",options=('1','2','3','4','5','6','7','8')
+    present_sem=col3.selectbox("enter you present number of sem",options=('1','2','3','4','5','6','7','8'))
     for i in range(len(s_l1)):
         if(roll==str(s_l1[i][0])):
             if(s_l1[i][3]=="pass"):
