@@ -82,12 +82,12 @@ with open("marksdata.csv","r") as f:
     passper=(count/len(s_l1))*100
     col1,col2,col3=sl.columns(3)
     roll=col1.text_input("enter your roll number in caps",max_chars=10)
-    pre=col2.text_input("enter you total cgpa upto this result",max_chars=5)
-    present_sem=col3.text_input("enter you present number of sem",max_chars=1)
+    pre=col2.text_input("enter you total cgpa upto this result",value=0.0,max_chars=5)
+    present_sem=col3.selectbox("enter you present number of sem",options=('1','2','3','4','5','6','7','8')
     for i in range(len(s_l1)):
         if(roll==str(s_l1[i][0])):
             if(s_l1[i][3]=="pass"):
-                sl.write("Congratulations you have passed in all of your exams (Party ledha pushpa)")
+                sl.write("Congratulations you have passed in all of your exams")
                 sl.write(f"you have secured {sl_1.index(sl_1[i])+1}th position in the department")
                 sl.success(f"{s_l1[i][0]} --> CGPA={s_l1[i][1]}, percentage={s_l1[i][2]}")
             else:
@@ -101,18 +101,3 @@ with open("marksdata.csv","r") as f:
                     "Percentage":[s_l1[i][2] for i in range(len(s_l1))],"status":[s_l1[i][3] for i in range(len(s_l1))]})
     t = t.set_index([pd.Index([i for i in range(1,len(s_l1)+1)])]) 
     sl.table(t)
-    
-    
-        
-    
-    """s_l1=sorted(l1,key=lambda x: x[1],reverse=True)
-    for i in s_l1:
-        if i[0]=="21P31A04P8":
-            print(f"{i[0]} has secured {s_l1.index(i)+1}th Rank in the ECE Department")
-    for k in range(len(s_l1)):
-        
-        print(f"{k+1}. {s_l1[k][0]} --> sgpa = {s_l1[k][1]} & {s_l1[k][2]} %")
-    #with open("C:/Users/ABC/Desktop/I-II marks","w",newline="")as f1:
-        #x1=csv.writer(f1)
-        #x1.writerow(["roll number","grade","percentage"])
-        #x1.writerows(s_l1)"""
