@@ -92,6 +92,7 @@ with open("marksdata.csv","r") as f:
                 sl.success(f"{s_l1[i][0]} --> CGPA={s_l1[i][1]}, percentage={s_l1[i][2]}")
             else:
                 sl.write("sorry Champ! you have failed, luck doesn't favour you this time")
+                sl.write(f"you have secured {s_l1.index(s_l1[i])+1}th position in the department")
                 #sl.write("Humein successful selections ke sath successful preprations ko bi celebrate karna chahiye!       ~jeethu bhaiya")
                 sl.error(f"{s_l1[i][0]} --> CGPA={s_l1[i][1]}, percentage={s_l1[i][2]}")
             change=((float(pre)*(float(present_sem)-1))+(float(s_l1[i][1])))/float(present_sem)
