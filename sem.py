@@ -53,7 +53,10 @@ with open("marksdata.csv","r") as f:
        '21P31A04N3', '21P31A04N4', '21P31A04N5', '21P31A04N6', '21P31A04N7', '21P31A04N8', '21P31A04N9', '21P31A04O0', 
        '21P31A04O1', '21P31A04O2', '21P31A04O3', '21P31A04O4', '21P31A04O5', '21P31A04O6', '21P31A04O7', '21P31A04O8', 
        '21P31A04O9', '21P31A04P0', '21P31A04P1', '21P31A04P2', '21P31A04P3', '21P31A04P4', '21P31A04P5', '21P31A04P6', 
-       '21P31A04P7', '21P31A04P8', '21P31A04P9', '21P31A04Q0', '21P31A04Q1', '21P31A04Q2', '21P31A04Q3', '21P31A04Q4']
+       '21P31A04P7', '21P31A04P8', '21P31A04P9', '21P31A04Q0', '21P31A04Q1', '21P31A04Q2', '21P31A04Q3', '21P31A04Q4'
+       '22P35A0401', '22P35A0402', '22P35A0403', '22P35A0404', '22P35A0405', '22P35A0406', '22P35A0407', '22P35A0408', 
+       '22P35A0409', '22P35A0410', '22P35A0411', '22P35A0412', '22P35A0413', '22P35A0414', '22P35A0415', '22P35A0416', 
+       '22P35A0417', '22P35A0418', '22P35A0419', '22P35A0420', '22P35A0421', '22P35A0422', '22P35A0423', '22P35A0424', ]
     print(data[4])
     count=0
     l1=[]
@@ -61,13 +64,13 @@ with open("marksdata.csv","r") as f:
         g=[grade_point(i[4])*float(i[5]) for i in data if i[0] ==j]
         #print(g)
         c=[float(i[5]) for i in data if i[0]==j]
-        if(sum(c)==19.5):
+        if(sum(c)==21.5):
             count+=1
             string="pass"
         else:
             string="fail"
         #print(c)
-        grade=("%.2f"%(sum(g)/19.5))
+        grade=("%.2f"%(sum(g)/21.5))
         p=(float(grade)-0.75)*10
         percentage=("%.2f"%p)
         l1.append([j,grade,percentage,string])
@@ -85,13 +88,14 @@ with open("marksdata.csv","r") as f:
         if(roll==str(s_l1[i][0])):
             if(s_l1[i][3]=="pass"):
                 sl.write("Congratulations you have passed in all of your exams (Party ledha pushpa)")
+                sl.write(f"you have secured {sl_1.index(sl_1[i])+1}th position in the department")
                 sl.success(f"{s_l1[i][0]} --> CGPA={s_l1[i][1]}, percentage={s_l1[i][2]}")
             else:
                 sl.write("sorry Champ! you have failed, luck doesn't favour you this time")
-                sl.write("Humein successful selections ke sath successful preprations ko bi celebrate karna chahiye!       ~jeethu bhaiya")
+                #sl.write("Humein successful selections ke sath successful preprations ko bi celebrate karna chahiye!       ~jeethu bhaiya")
                 sl.error(f"{s_l1[i][0]} --> CGPA={s_l1[i][1]}, percentage={s_l1[i][2]}")
             change=((float(pre)*(float(present_sem)-1))+(float(s_l1[i][1])))/float(present_sem)
-            sl.metric(label="Your total CGPA",value=change,delta=float(s_l1[i][1])-change)
+            sl.metric(label="Your total CGPA",value="%0.2f"%change,delta="%0.2f"%(float(s_l1[i][1])-change))
 
     t=pd.DataFrame({"Roll Number":[s_l1[i][0] for i in range(len(s_l1))],"CGPA":[s_l1[i][1] for i in range(len(s_l1))],
                     "Percentage":[s_l1[i][2] for i in range(len(s_l1))],"status":[s_l1[i][3] for i in range(len(s_l1))]})
