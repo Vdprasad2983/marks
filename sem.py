@@ -88,7 +88,7 @@ with open("marksdata.csv","r") as f:
         if(roll==str(s_l1[i][0])):
             if(s_l1[i][3]=="pass"):
                 sl.write("Congratulations you have passed in all of your exams")
-                sl.write(f"you have secured {sl_1.index(sl_1[i])+1}th position in the department")
+                sl.write(f"you have secured {s_l1.index(s_l1[i])+1}th position in the department")
                 sl.success(f"{s_l1[i][0]} --> CGPA={s_l1[i][1]}, percentage={s_l1[i][2]}")
             else:
                 sl.write("sorry Champ! you have failed, luck doesn't favour you this time")
