@@ -72,7 +72,7 @@ with open("marksdata.csv","r") as f:
     s_l1=sorted(l1,key=lambda x: x[1],reverse=True)
     sl.title("Marks of ACET ECE in the I-II sem")
     passper=(count/len(s_l1))*100
-    sl.write(f"The total pass percentage is {str("%.2f"%passper)}")
+    sl.write(f"The total pass percentage is {"%.2f"%passper}")
     col1,col2,col3=sl.columns(3)
     roll=col1.text_input("enter your roll number in caps",max_chars=10)
     pre=col2.text_input("enter you total cgpa upto this result",value=0.0,max_chars=5)
