@@ -4,4 +4,3 @@ urllib3
 streamlit
 pandas
 datetime
-csv
