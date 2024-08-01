@@ -4,3 +4,4 @@ urllib3
 streamlit
 pandas
 datetime
+streamlit-option-menu
