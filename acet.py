@@ -118,8 +118,7 @@ with open("ecemarks_1.csv","r") as f:
     c=l[144:216]
     d=l[216:288]
     sl.title("Marks of ACET ECE in the III-II sem")
-    select=option_menu(menu_title=None,options=["All sections","A sec","B sec","C sec","D sec"],
-                         default_index=0,orientation="horizontal")
+    select=option_menu(menu_title=None,options=["All sections","A sec","B sec","C sec","D sec"])
     sl.subheader("you can explore other options by clicking on menu bar")
     sl.subheader("For better experience turn on desktop mode")
     col1,col2,col3=sl.columns(3)
