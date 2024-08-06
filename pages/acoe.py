@@ -119,12 +119,12 @@ with open("ecemarks_2.csv","r") as f:
                 if(s_l1[i][6]=="pass"):
                     sl.write(f"Congratulations {s_l1[i][1]} you have passed in all of your exams")
                     sl.write(f"YOU HAVE SECURED {s_l1.index(s_l1[i])+1}th position")
-                    sl.success(f"{s_l1[i][0]} --> CGPA={s_l1[i][2]}, percentage={s_l1[i][4]}")
+                    sl.success(f"{s_l1[i][0]} --> CGPA={s_l1[i][2]}, percentage={s_l1[i][3]}")
                 else:
                     sl.write(f"sorry {s_l1[i][1]} you have failed, luck doesn't favour you this time")
                     sl.write(f"YOU HAVE SECURED {s_l1.index(s_l1[i])+1}th position in the department")
                     #sl.write("Humein successful selections ke sath successful preprations ko bi celebrate karna chahiye!       ~jeethu bhaiya")
-                    sl.error(f"{s_l1[i][0]} --> CGPA={s_l1[i][2]}, percentage={s_l1[i][4]}")
+                    sl.error(f"{s_l1[i][0]} --> CGPA={s_l1[i][2]}, percentage={s_l1[i][3]}")
                 #change=((float(s_l1[i][4])*(float(present_sem)-1))+(float(s_l1[i][2])))/float(present_sem)
                 sl.metric(label="Your total CGPA",value="%.2f"%change,delta="%.2f"%(float(s_l1[i][2])-change))
         t=pd.DataFrame({"Roll Number":[s_l1[i][0] for i in range(len(s_l1))],"NAME":[s_l1[i][1] for i in range(len(s_l1))],
