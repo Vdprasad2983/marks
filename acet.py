@@ -31,8 +31,6 @@ def calculate(l):
         else:
             string="fail"
         grade=("%.2f"%(sum(g)/21.5))
-        p=(float(grade)-0.75)*10
-        percentage=("%.2f"%p)
         with open("data_1.csv","r") as f1:
             x1=csv.reader(f1)
             name_grade=list(x1)
@@ -41,6 +39,8 @@ def calculate(l):
                     name=name_grade[k][1]
                     previous=name_grade[k][2]
                     change=((float(previous)*(float(present_sem)-1))+(float(grade)))/float(present_sem)
+                    p=(float(change)-0.75)*10
+                    percentage=("%.2f"%p)
         l1.append([j,name,grade,percentage,previous,round(change,2),string])
     s_l1=sorted(l1,key=lambda x: x[2],reverse=True)
 
@@ -67,9 +67,12 @@ def calculate(l):
                     sl.error(f"{s_l1[i][0]} --> CGPA={s_l1[i][2]}, percentage={s_l1[i][4]}")
                 #change=((float(s_l1[i][4])*(float(present_sem)-1))+(float(s_l1[i][2])))/float(present_sem)
                 sl.metric(label="Your total CGPA",value="%.2f"%change,delta="%.2f"%(float(s_l1[i][2])-change))
-    t=pd.DataFrame({"Roll Number":[s_l1[i][0] for i in range(len(s_l1))],"NAME":[s_l1[i][1] for i in range(len(s_l1))],
-                    "SGPA":[s_l1[i][2] for i in range(len(s_l1))],"Percentage":[s_l1[i][3] for i in range(len(s_l1))],
-                    "Total CGPA":["%.2f"%s_l1[i][5] for i in range(len(s_l1))],"status":[s_l1[i][6] for i in range(len(s_l1))]})
+    t=pd.DataFrame({"Roll Number":[s_l1[i][0] for i in range(len(s_l1))],
+                    "NAME":[s_l1[i][1] for i in range(len(s_l1))],
+                    "SGPA":[s_l1[i][2] for i in range(len(s_l1))],
+                    "Total CGPA":["%.2f"%s_l1[i][5] for i in range(len(s_l1))],
+                    "Percentage":[s_l1[i][3] for i in range(len(s_l1))],
+                    "status":[s_l1[i][6] for i in range(len(s_l1))]})
     t = t.set_index([pd.Index([i for i in range(1,len(s_l1)+1)])])
     return t
 
