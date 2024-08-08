@@ -129,7 +129,7 @@ with open("ecemarks_1.csv","r") as f:
     roll=r.upper()
     #pre=col2.text_input("enter you total cgpa upto this result",value=0.0,max_chars=5)
     #present_sem=col3.selectbox("enter you present number of sem",options=('1','2','3','4','5','6','7','8'))
-    present_sem='5'
+    present_sem='6'
     if(roll==""):
         sl.error("please! enter the roll number")
     #select=sl.selectbox("choose your option for sections",options=("All sections","A sec","B sec","C sec","D sec"))
