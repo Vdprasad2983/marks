@@ -81,8 +81,7 @@ with open("ecemarks_2.csv","r") as f:
     if(roll==""):
         sl.error("please! enter the roll number")
      if roll not in l and roll !="":
-                sl.warning("the number you have entered is not in the list please check again!")
-                break
+            sl.warning("the number you have entered is not in the list please check again!")
     
     l1=[]
     count=0
