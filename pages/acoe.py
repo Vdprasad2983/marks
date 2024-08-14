@@ -108,6 +108,9 @@ with open("ecemarks_2.csv","r") as f:
     s_l1=sorted(l1,key=lambda x: x[2],reverse=True)
     if selected=="console data":
         for i in range(len(s_l1)):
+            if roll not in l:
+                sl.warning("the number you have entered is not in the list please check again!")
+                break
             if(roll==str(s_l1[i][0])):
             
                 change=((float(pre)*(float(present_sem)-1))+(float(s_l1[i][2])))/float(present_sem)
