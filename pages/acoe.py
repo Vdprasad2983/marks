@@ -143,8 +143,8 @@ with open("ecemarks_2.csv","r") as f:
                 sl.write(f"father name :\t {i[4]}")
                 sl.write(f"Date of Birth : {i[7]}")
                 sl.write(f"ABC id : {i[5]}")
-                sl.write(f"grade obtianed in 5th sem :\t {i[2]}")
-                sl.write(f"percentage obtianed in 5th sem :\t {i[3]}")
+                sl.write(f"grade obtianed in 6th sem :\t {i[2]}")
+                sl.write(f"percentage obtianed in 6th sem :\t {i[3]}")
                 if(i[6]=="pass"):
                     sl.success("passed in all subjects and not having any backlogs")
                 else:
