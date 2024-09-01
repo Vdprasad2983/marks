@@ -1,7 +1,5 @@
 import streamlit as sl
 import pandas as pd
-import datetime
-import math
 import csv
 from streamlit_option_menu import option_menu
 def grade_point(n):
@@ -120,8 +118,11 @@ with open("ecemarks_1.csv","r") as f:
     b=l[72:144]
     c=l[144:216]
     d=l[216:288]
+    sl.set_page_config(page_title="ACET",page_icon="acetlogo.jpeg")
+    sl.image("university.png",width=500)
     sl.title("Marks of ACET ECE in the III-II sem")
-    select=option_menu(menu_title=None,options=["All sections","A sec","B sec","C sec","D sec","Custom"])
+    select=option_menu(menu_title=None,options=["All sections","A sec","B sec","C sec","D sec","Custom"]
+                        default_index=0,orientation="horizontal")
     sl.subheader("you can explore other options by clicking on menu bar")
     sl.subheader("For better experience turn on desktop mode")
     col1,col2,col3=sl.columns(3)
@@ -133,22 +134,36 @@ with open("ecemarks_1.csv","r") as f:
     if(roll==""):
         sl.error("please! enter the roll number")
     #select=sl.selectbox("choose your option for sections",options=("All sections","A sec","B sec","C sec","D sec"))
+    def color_df(val):
+        if val=='pass':
+            color='green'
+        else:
+            color='red'
+        return f'background-color:{color}'
     if select=="A sec":
         t=calculate(a)
-        sl.table(t)
+        sl.table(t.style.applymap(color_df,subset=['status']))
     if select=="B sec":
         t=calculate(b)
-        sl.table(t)
+        sl.table(t.style.applymap(color_df,subset=['status']))
     if select=="C sec":
         t=calculate(c)
-        sl.table(t)
+        sl.table(t.style.applymap(color_df,subset=['status']))
     if select=="D sec":
         t=calculate(d)
-        sl.table(t)
+        sl.table(t.style.applymap(color_df,subset=['status']))
     if select=="All sections":
         t=calculate(l)
-        sl.dataframe(t)
+        sl.dataframe(t.style.applymap(color_df,subset=['status']))
     if select=="Custom":
         cus=list(sl.multiselect("select the numbers you want",options=l))
-        t=calculate(cus)
-        sl.table(t)
+        try:
+            t=calculate(cus)
+            sl.table(t)
+        except ZeroDivisionError:
+            sl.error("please choose atleast one number")
+    mapdata=pd.DataFrame({
+        'latitude':[17.0888774],
+        'longitude':[82.0680957]
+    })
+    sl.map(mapdata)
