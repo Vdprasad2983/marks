@@ -28,7 +28,7 @@ def calculate(l):
             string="pass"
         else:
             string="fail"
-        grade=round(sum(g)/21.5)
+        grade=round((sum(g)/21.5),2)
         with open("data_1.csv","r") as f1:
             x1=csv.reader(f1)
             name_grade=list(x1)
