@@ -28,7 +28,7 @@ def calculate(l):
             string="pass"
         else:
             string="fail"
-        grade=("%.2f"%(sum(g)/21.5))
+        grade=round(sum(g)/21.5)
         with open("data_1.csv","r") as f1:
             x1=csv.reader(f1)
             name_grade=list(x1)
@@ -38,7 +38,7 @@ def calculate(l):
                     previous=name_grade[k][2]
                     change=((float(previous)*(float(present_sem)-1))+(float(grade)))/float(present_sem)
                     p=(float(change)-0.75)*10
-                    percentage=("%.2f"%p)
+                    percentage=round(p,2)
         l1.append([j,name,grade,percentage,previous,round(change,2),string])
     s_l1=sorted(l1,key=lambda x: x[2],reverse=True)
 
