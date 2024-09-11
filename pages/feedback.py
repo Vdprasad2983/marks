@@ -3,10 +3,10 @@ import datetime
 import mysql.connector as db
 mydb=db.connect(
     host='sql.freedb.tech',
-    user='freedb_prasad',
-    port=3306,
+    user='freedb_prasad'
     password='3cPMCyn68$YCBXx',
-    database="freedb_streamlitdb")
+    database="freedb_streamlitdb",
+    port="3306")
 mycursor=mydb.cursor()
 print("connectoin established")
 
