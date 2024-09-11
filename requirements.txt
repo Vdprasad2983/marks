@@ -7,3 +7,4 @@ datetime
 streamlit-option-menu
 gspread
 oauth2client
+mysql.connector
