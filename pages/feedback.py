@@ -3,7 +3,7 @@ import datetime
 import mysql.connector as db
 mydb=db.connect(
     host='sql.freedb.tech',
-    user='freedb_prasad'
+    user='freedb_prasad',
     password='3cPMCyn68$YCBXx',
     database="freedb_streamlitdb",
     port="3306")
