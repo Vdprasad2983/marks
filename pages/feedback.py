@@ -2,10 +2,10 @@ import streamlit as st
 import datetime
 import mysql.connector as db
 mydb=db.connect(
-    host='sql.freedb.tech',
-    user='freedb_prasad',
-    password='3cPMCyn68$YCBXx',
-    database="freedb_streamlitdb",
+    host='192.168.0.175',
+    user='root',
+    password='root',
+    database="mydb2",
     port="3306")
 mycursor=mydb.cursor()
 print("connectoin established")
