@@ -1,15 +1,8 @@
 import streamlit as st
 import datetime
-import mysql.connector as db
-mydb=db.connect(
-    host='192.168.0.175',
-    user='root',
-    password='root',
-    database="mydb2",
-    port="3306")
-mycursor=mydb.cursor()
-print("connectoin established")
-
+import sqlite3
+conn=sqlite3.connect('form.db',check_same_thread=False)
+cur=conn.cursor()
 college_list=['Aditya university','aditya engineering college (AEC)','aditya college of engineering and technology (ACET)','aditya college of engineering (ACOE)']
 dep_list=['CSE','ECE','EEE','MECH','CIVIL','AIML','IOT']
 
@@ -24,14 +17,17 @@ percentage=st.text_input("enter your percentage",placeholder="prefer upto 2 deci
 feedback=st.text_area("Feedback *",placeholder="please provide your feedback about the website it would be helpful")
 submit_button=st.button("Submit")
 
-current_time=datetime.datetime.now()
-
+date=datetime.datetime.now()
 if submit_button:
         if not yourname or not roll_number or not feedback:
             st.warning("please enter the mandatory fields")
             st.stop()
-        sql="insert into feedback(yourname , father_name , roll_number, college , department, section ,cgpa,percentage,feedback) values(%s ,%s, %s, %s ,%s, %s, %s, %s, %s)"
-        val=(yourname , father_name , roll_number, college , department , section , cgpa , percentage , feedback)
-        mycursor.execute(sql,val)
-        mydb.commit()
-        st.success("your query submitted succesfully")
+        cur.execute(
+            """
+CREATE TABLE IF NOT EXISTS feedback(NAME TEXT(50),FATHER_NAME TEXT(50),ROLL_NUMBER TEXT(50),COLLEGE TEXT(50),DEPARTMENT TEXT(50),SECTION TEXT(50),CGPA TEXT(50),PERCENTAGE TEXT(50),FEEDBACK TEXT(150),DATE TEXT(50))
+"""
+        )
+        cur.execute("INSERT INTO feedback VALUES (?,?,?,?,?,?,?,?,?,?)",(yourname,father_name,roll_number,college,department,section,cgpa,percentage,feedback,date))
+        conn.commit()
+        conn.close()
+        st.success("data added into the database successfully !!!")
