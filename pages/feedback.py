@@ -27,8 +27,8 @@ college_list = ['Aditya university', 'aditya engineering college (AEC)',
 dep_list = ['CSE', 'ECE', 'EEE', 'MECH', 'CIVIL', 'AIML', 'IOT']
 
 # Streamlit input fields
-yourname = st.text_input("Enter your name *")
-father_name = st.text_input("Enter your father's name")
+yourname = st.text_input("Enter your name *",max_chars=100)
+father_name = st.text_input("Enter your father's name",max_chars=100)
 roll_number = st.text_input("Enter your roll number *", max_chars=10, placeholder="Only in caps")
 college = st.selectbox("Select your college", options=college_list)
 department = st.selectbox("Select your Department", options=dep_list)
