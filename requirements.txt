@@ -1,10 +1,7 @@
 Pillow
-newspaper3k
-urllib3
 streamlit
 pandas
 datetime
 streamlit-option-menu
-gspread
-oauth2client
+psycopg2
 mysql.connector
