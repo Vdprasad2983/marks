@@ -161,9 +161,9 @@ with open("ecemarks_1.csv","r") as f:
             t=calculate(cus)
             sl.table(t)
         except ZeroDivisionError:
-            sl.error("please choose atleast one number")
-    mapdata=pd.DataFrame({
+            sl.warning("please choose atleast one number")
+    '''mapdata=pd.DataFrame({
         'latitude':[17.0888774],
         'longitude':[82.0680957]
     })
-    sl.map(mapdata)
+    sl.map(mapdata)'''
