@@ -2,6 +2,7 @@ import streamlit as st
 import datetime
 import psycopg2
 import os
+from pytz import timezone
 
 # PostgreSQL connection parameters (replace with your Render PostgreSQL details)
 DB_HOST = os.getenv('DB_HOST', 'dpg-crifrl68ii6s73f32mq0-a')
@@ -40,7 +41,7 @@ feedback = st.text_area("Feedback *", placeholder="Please provide your feedback 
 submit_button = st.button("Submit")
 
 # Current date
-date = datetime.datetime.now()
+date = datetime.datetime.now(timezone("Asia/Kolkata")
 
 if submit_button:
     if not yourname or not roll_number or not feedback:
@@ -65,7 +66,7 @@ if submit_button:
     st.success("Data added into the database successfully !!!")
 
 # Button to view feedback data
-view_data_button = st.button("View Feedback Data")
+'''view_data_button = st.button("View Feedback Data")
 
 if view_data_button:
     # Fetch all data from the feedback table
@@ -79,5 +80,5 @@ if view_data_button:
     else:
         st.write("No data found in the database.")
 
-# Close the connection at the end of the script
+# Close the connection at the end of the script'''
 conn.close()
