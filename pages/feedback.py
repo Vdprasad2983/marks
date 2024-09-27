@@ -66,7 +66,7 @@ if submit_button:
     st.success("Data added into the database successfully !!!")
 
 # Button to view feedback data
-view_data_button = st.button("View Feedback Data")
+'''view_data_button = st.button("View Feedback Data")
 
 if view_data_button:
     # Fetch all data from the feedback table
