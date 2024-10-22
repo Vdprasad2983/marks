@@ -41,7 +41,8 @@ feedback = st.text_area("Feedback *", placeholder="Please provide your feedback 
 submit_button = st.button("Submit")
 
 # Current date
-date = datetime.datetime.now(timezone("Asia/Kolkata"))
+kolkata=timezone("Asia/Kolkata")
+date = datetime.datetime.now(tz=kolkata)
 
 if submit_button:
     if not yourname or not roll_number or not feedback:
