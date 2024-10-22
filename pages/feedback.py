@@ -5,10 +5,10 @@ import os
 from pytz import timezone
 
 # PostgreSQL connection parameters (replace with your Render PostgreSQL details)
-DB_HOST = os.getenv('DB_HOST', 'dpg-crifrl68ii6s73f32mq0-a')
-DB_NAME = os.getenv('DB_NAME', 'mydatabase_0xnp')
-DB_USER = os.getenv('DB_USER', 'mydatabase_0xnp_user')
-DB_PASS = os.getenv('DB_PASS', 'B2eixQVp1J1KSPz6qZZ6Tlb1mx3YJJ2f')
+DB_HOST = os.getenv('DB_HOST', 'dpg-csbgohjtq21c73a07ldg-a')
+DB_NAME = os.getenv('DB_NAME', 'database_mu99')
+DB_USER = os.getenv('DB_USER', 'database_mu99_user')
+DB_PASS = os.getenv('DB_PASS', 'RG7Kxj2eysolMAG77wRo5sJCerXVxdeq')
 DB_PORT = os.getenv('DB_PORT', '5432')
 
 # Connect to PostgreSQL database
